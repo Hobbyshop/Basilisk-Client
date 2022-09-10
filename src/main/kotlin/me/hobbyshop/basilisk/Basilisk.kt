@@ -17,10 +17,12 @@ class Basilisk {
 
     fun startup() {
         logger = Logger()
+
+        logger.info("Started client")
     }
 
     fun shutdown() {
-
+        logger.info("Shut down client")
     }
 
 }

@@ -68,6 +68,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
 	annotationProcessor("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
 
+	compileOnly('org.slick2d:slick2d-core:1.0.2')
 	implementation("com.andreapivetta.kolor:kolor:1.0.0")
 }
 
