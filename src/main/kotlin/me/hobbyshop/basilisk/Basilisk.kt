@@ -4,7 +4,7 @@ import me.hobbyshop.basilisk.util.Logger
 
 class Basilisk {
 
-    lateinit var logger: Logger;
+    lateinit var logger: Logger
 
     companion object Instances {
         @JvmStatic
