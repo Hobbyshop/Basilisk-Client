@@ -18,8 +18,8 @@ apply plugin: 'org.jetbrains.kotlin.jvm'
 apply plugin: 'org.spongepowered.mixin'
 apply plugin: 'java'
 
-String tweakerClass = 'io.github.axst.launch.TCLTweaker'
-String tweaker = 'tcl'
+String tweakerClass = 'me.hobbyshop.basilisk.launch.BasiliskTweaker'
+String tweaker = 'basilisk'
 
 compileJava {
 	sourceCompatibility = targetCompatibility = 8
