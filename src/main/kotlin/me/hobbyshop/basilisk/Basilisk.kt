@@ -12,7 +12,7 @@ class Basilisk {
 
         const val NAME = "Basilisk Client"
         const val VERSION = "1.0"
-        const val NAMEVER = NAME + VERSION
+        const val NAMEVER = "$NAME v$VERSION"
     }
 
     fun startup() {

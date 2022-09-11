@@ -18,8 +18,8 @@ class CustomFontRenderer(val filePath: String, val size: Int) {
 
         val FONT_HEIGHT = 9
 
-        val title = CustomFontRenderer("/assets/minecraft/client/fonts/Comic-Regular.ttf", 22)
-        var text = CustomFontRenderer("/assets/minecraft/client/fonts/Comic-Bold.ttf", 12)
+        val title = CustomFontRenderer("/assets/minecraft/basilisk/font/Uni Sans Bold.otf", 22)
+        var text = CustomFontRenderer("/assets/minecraft/basilisk/font/Uni Sans Regular.otf", 12)
     }
 
     private val colorCodes: Array<Int> = arrayOf(

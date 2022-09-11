@@ -1,6 +1,8 @@
 package me.hobbyshop.basilisk.ui
 
-abstract class UiComponent(var x: Int, var y: Int, var width: Int, var height: Int, var visible: Boolean) {
+abstract class UiComponent(var x: Int, var y: Int, var width: Int, var height: Int) {
+
+    var visible: Boolean = true
 
     abstract fun renderComponent(mouseX: Int, mouseY: Int, ingame: Boolean)
 
