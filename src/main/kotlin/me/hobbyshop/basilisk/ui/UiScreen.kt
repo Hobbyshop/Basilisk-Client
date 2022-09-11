@@ -2,26 +2,15 @@ package me.hobbyshop.basilisk.ui
 
 import me.hobbyshop.basilisk.Basilisk
 import me.hobbyshop.basilisk.ui.components.buttons.UiButton
-import me.hobbyshop.basilisk.util.CustomFontRenderer
+import me.hobbyshop.basilisk.util.gui.CustomFontRenderer
 import net.minecraft.client.Minecraft
 import net.minecraft.client.audio.PositionedSoundRecord
 import net.minecraft.client.gui.Gui
 import net.minecraft.client.gui.GuiScreen
-import net.minecraft.client.renderer.GlStateManager
-import net.minecraft.client.renderer.Tessellator
-import net.minecraft.client.renderer.texture.DynamicTexture
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats
-import net.minecraft.util.MathHelper
 import net.minecraft.util.ResourceLocation
-import org.lwjgl.opengl.GL11
-import org.lwjgl.util.glu.Project
-import org.newdawn.slick.particles.ConfigurableEmitter.ColorRecord
 import java.awt.Color
 
 abstract class UiScreen(val parent: GuiScreen?) : GuiScreen() {
-
-    private var panoramaTimer = 0
-    private val backgroundTexture: ResourceLocation = Minecraft.getMinecraft().textureManager.getDynamicTextureLocation("background", DynamicTexture(256, 256))
 
     val components: MutableList<UiComponent> = mutableListOf()
 
@@ -55,11 +44,6 @@ abstract class UiScreen(val parent: GuiScreen?) : GuiScreen() {
         this.components.clear()
         this.initComponents()
         super.initGui()
-    }
-
-    override fun updateScreen() {
-        ++panoramaTimer
-        super.updateScreen()
     }
 
     override fun doesGuiPauseGame() = false

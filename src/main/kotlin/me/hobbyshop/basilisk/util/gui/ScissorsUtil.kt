@@ -1,4 +1,4 @@
-package me.hobbyshop.basilisk.util
+package me.hobbyshop.basilisk.util.gui
 
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.ScaledResolution
