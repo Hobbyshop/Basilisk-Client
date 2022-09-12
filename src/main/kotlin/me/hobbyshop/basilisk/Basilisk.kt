@@ -1,5 +1,6 @@
 package me.hobbyshop.basilisk
 
+import me.hobbyshop.basilisk.settings.SettingsManager
 import me.hobbyshop.basilisk.util.Logger
 
 class Basilisk {
@@ -18,10 +19,12 @@ class Basilisk {
     fun startup() {
         logger = Logger()
 
+        SettingsManager.loadSettings()
         logger.info("Started client")
     }
 
     fun shutdown() {
+        SettingsManager.saveSettings()
         logger.info("Shut down client")
     }
 
