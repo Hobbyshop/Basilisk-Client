@@ -1,11 +1,14 @@
 package me.hobbyshop.basilisk
 
+import me.hobbyshop.basilisk.mod.ModuleManager
+import me.hobbyshop.basilisk.mod.impl.TestMod
 import me.hobbyshop.basilisk.settings.SettingsManager
 import me.hobbyshop.basilisk.util.Logger
 
 class Basilisk {
 
     lateinit var logger: Logger
+    lateinit var modManager: ModuleManager
 
     companion object Instances {
         @JvmStatic
@@ -18,6 +21,7 @@ class Basilisk {
 
     fun startup() {
         logger = Logger()
+        modManager = ModuleManager()
 
         SettingsManager.loadSettings()
         logger.info("Started client")

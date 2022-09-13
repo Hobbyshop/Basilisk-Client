@@ -17,8 +17,8 @@ object SettingsManager {
             settingsDir.mkdirs()
     }
 
-    fun register(type: Class<out SettingsContainer>, instance: SettingsContainer) {
-        containers[type] = instance
+    fun register(instance: SettingsContainer) {
+        containers[instance.javaClass] = instance
     }
 
     fun loadSettings() {
