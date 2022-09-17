@@ -22,4 +22,15 @@ class ModuleManager {
         }
     }
 
+    fun getModule(type: Class<Module>): Module {
+        val mod = modules.stream().filter {
+            return@filter it.javaClass == type
+        }.findFirst()
+
+        if (!mod.isPresent)
+            Basilisk.instance.logger.error("Unable to find entry of type ${type.simpleName} in modules")
+
+        return mod.get()
+    }
+
 }

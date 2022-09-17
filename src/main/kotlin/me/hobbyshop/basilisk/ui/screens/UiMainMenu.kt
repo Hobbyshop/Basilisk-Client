@@ -43,7 +43,7 @@ class UiMainMenu : UiScreen(null) {
             mc.displayGuiScreen(GuiOptions(this, mc.gameSettings))
         })
         this.components.add(UiImageButton(ResourceLocation("basilisk/icons/logo.png"), "Client Settings", this.width / 2 - 4, this.height - 18, 8, this.height - 30) {
-
+            mc.displayGuiScreen(UiModMenu(this))
         })
         this.components.add(UiImageButton(ResourceLocation("basilisk/icons/close.png"), "Quit", this.width / 2 + 17, this.height - 18, 8, this.height - 30) {
             mc.shutdown()

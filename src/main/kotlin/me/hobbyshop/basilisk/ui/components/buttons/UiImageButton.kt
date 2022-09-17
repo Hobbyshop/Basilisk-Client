@@ -15,8 +15,6 @@ class UiImageButton(private val image: ResourceLocation, text: String, x: Int, y
     onclick
 ) {
 
-    private var hover = 0
-
     override fun renderComponent(mouseX: Int, mouseY: Int, ingame: Boolean) {
         if (this.hovered(mouseX, mouseY)) {
             if (hover < 10)
