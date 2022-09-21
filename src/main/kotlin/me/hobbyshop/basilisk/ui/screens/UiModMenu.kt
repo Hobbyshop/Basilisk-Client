@@ -3,6 +3,7 @@ package me.hobbyshop.basilisk.ui.screens
 import me.hobbyshop.basilisk.Basilisk
 import me.hobbyshop.basilisk.mod.ModCategory
 import me.hobbyshop.basilisk.ui.UiScreen
+import me.hobbyshop.basilisk.ui.components.buttons.UiImageButton
 import me.hobbyshop.basilisk.ui.components.buttons.UiRadioButton
 import me.hobbyshop.basilisk.util.gui.CustomFontRenderer
 import me.hobbyshop.basilisk.util.gui.GuiUtils
@@ -23,6 +24,8 @@ class UiModMenu(parent: GuiScreen?) : UiScreen(parent) {
     override fun renderScreen(mouseX: Int, mouseY: Int, ingame: Boolean) {
         GuiUtils.drawRoundedRect(this.width / 2 - 120, this.height / 2 - 80, 240, 160, 5, Color(46, 46, 53))
         GuiUtils.drawRoundedRect(this.width / 2 - 120, this.height / 2 - 80, 80, 160, 5, Color(51, 51, 58))
+
+        GuiUtils.drawRoundedRect(this.width / 2 - 115, this.height / 2 + 56, 70, 18, 5, Color(34, 34, 40, 200))
 
         mc.textureManager.bindTexture(ResourceLocation("basilisk/logo.png"))
         GL11.glPushMatrix()
@@ -57,6 +60,16 @@ class UiModMenu(parent: GuiScreen?) : UiScreen(parent) {
 
         filter = null
         this.setRadioButton(0)
+
+        this.components.add(UiImageButton(ResourceLocation("basilisk/icons/hud.png"), "Edit HUD", this.width / 2 - 80 - 24, this.height / 2 + 61, 8, this.height / 2 + 49) {
+            mc.displayGuiScreen(UiHudScreen(this))
+        })
+        this.components.add(UiImageButton(ResourceLocation("basilisk/icons/settings.png"), "Client Settings", this.width / 2 - 80 - 4, this.height / 2 + 61, 8, this.height / 2 + 49) {
+
+        })
+        this.components.add(UiImageButton(ResourceLocation("basilisk/icons/cosmetics.png"), "Cosmetics", this.width / 2 - 80 - 4 + 20, this.height / 2 + 61, 8, this.height / 2 + 49) {
+
+        })
     }
 
     override fun mouseClicked(mouseX: Int, mouseY: Int, mouseButton: Int) {
