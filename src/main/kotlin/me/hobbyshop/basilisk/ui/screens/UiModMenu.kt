@@ -36,19 +36,19 @@ class UiModMenu(parent: GuiScreen?) : UiScreen(parent) {
 
     override fun initComponents() {
         filterButtons = arrayOf(
-            UiRadioButton("A L L", this.width / 2 - 115, this.height / 2 - 48, 70, 14) {
+            UiRadioButton("ALL", this.width / 2 - 115, this.height / 2 - 48, 70, 14) {
                 if (filter != null)
                     filter == null
             },
-            UiRadioButton("H U D", this.width / 2 - 115, this.height / 2 - 30, 70, 14) {
+            UiRadioButton("HUD", this.width / 2 - 115, this.height / 2 - 30, 70, 14) {
                 if (filter != ModCategory.HUD)
                     filter == ModCategory.HUD
             },
-            UiRadioButton("P V P", this.width / 2 - 115, this.height / 2 - 12, 70, 14) {
+            UiRadioButton("PVP", this.width / 2 - 115, this.height / 2 - 12, 70, 14) {
                 if (filter != ModCategory.PVP)
                     filter == ModCategory.PVP
             },
-            UiRadioButton("M I S C", this.width / 2 - 115, this.height / 2 + 6, 70, 14) {
+            UiRadioButton("MISC", this.width / 2 - 115, this.height / 2 + 6, 70, 14) {
                 if (filter != ModCategory.MISC)
                     filter == ModCategory.MISC
             }
