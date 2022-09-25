@@ -9,7 +9,7 @@ class ModuleManager {
     val modules: MutableList<Module> = mutableListOf()
 
     init {
-        val reflections = Reflections("me.hobbyshop.basilisk.mod.impl")
+        val reflections = Reflections("me.hobbyshop.basilisk.mod")
 
         for (clazz in reflections.getTypesAnnotatedWith(ModuleData::class.java)) {
             if (!(clazz.newInstance() is Module)) {
@@ -19,6 +19,8 @@ class ModuleManager {
             val mod = clazz.newInstance() as Module
             modules.add(mod)
             SettingsManager.register(mod)
+
+            Basilisk.instance.logger.info("Initialized mod: ${mod.getData().name}")
         }
     }
 

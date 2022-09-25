@@ -67,8 +67,8 @@ class UiModMenu(parent: GuiScreen?) : UiScreen(parent) {
         this.components.add(UiImageButton(ResourceLocation("basilisk/icons/settings.png"), "Client Settings", this.width / 2 - 80 - 4, this.height / 2 + 61, 8, this.height / 2 + 49) {
 
         })
-        this.components.add(UiImageButton(ResourceLocation("basilisk/icons/cosmetics.png"), "Cosmetics", this.width / 2 - 80 - 4 + 20, this.height / 2 + 61, 8, this.height / 2 + 49) {
-
+        this.components.add(UiImageButton(ResourceLocation("basilisk/icons/console.png"), "Console", this.width / 2 - 80 - 4 + 20, this.height / 2 + 61, 8, this.height / 2 + 49) {
+            mc.displayGuiScreen(UiConsole(this))
         })
     }
 
