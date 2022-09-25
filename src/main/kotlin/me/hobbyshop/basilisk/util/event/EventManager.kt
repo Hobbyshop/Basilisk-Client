@@ -35,12 +35,8 @@ object EventManager {
             this.sortListValue(clazz as Class<out Event>)
 
         } else {
-
-            this.registeredEvents[(clazz as Class<out Event>)] = object : ArrayHelper<EventData>() {
-                init {
-                    add(methodData)
-                }
-            }
+            this.registeredEvents[clazz as Class<out Event>] = ArrayHelper<EventData>()
+            this.registeredEvents[clazz]?.add(methodData)
         }
     }
 

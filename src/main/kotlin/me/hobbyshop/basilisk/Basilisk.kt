@@ -1,9 +1,12 @@
 package me.hobbyshop.basilisk
 
+import me.hobbyshop.basilisk.events.KeyPressedEvent
 import me.hobbyshop.basilisk.mod.ModuleManager
 import me.hobbyshop.basilisk.mod.impl.TestMod
 import me.hobbyshop.basilisk.settings.SettingsManager
 import me.hobbyshop.basilisk.util.Logger
+import me.hobbyshop.basilisk.util.event.EventManager
+import me.hobbyshop.basilisk.util.event.EventTarget
 
 class Basilisk {
 
