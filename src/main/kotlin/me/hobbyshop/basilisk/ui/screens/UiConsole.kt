@@ -38,7 +38,7 @@ class UiConsole(parent: GuiScreen?) : UiScreen(parent) {
             mc.displayGuiScreen(parent)
         })
 
-        this.inputBox = UiTextField(this.width / 2 - 75, this.height / 2 + 45, 180, 20)
+        this.inputBox = UiTextField(CustomFontRenderer.monospace, this.width / 2 - 75, this.height / 2 + 45, 180, 20)
         this.inputBox.focused = true
         this.inputBox.cursorChar = '_'
         this.components.add(inputBox)
@@ -49,7 +49,7 @@ class UiConsole(parent: GuiScreen?) : UiScreen(parent) {
 
         var lineOffset = 0
         for (line in ClientConsole.instance.history) {
-            CustomFontRenderer.text.drawString(line, this.width / 2 - 70F, this.height / 2 - 60F + lineOffset, Color(134, 153, 169).rgb)
+            CustomFontRenderer.monospace.drawString(line, this.width / 2 - 70F, this.height / 2 - 60F + lineOffset, Color(134, 153, 169).rgb)
             lineOffset += CustomFontRenderer.FONT_HEIGHT
         }
     }

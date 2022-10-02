@@ -20,6 +20,7 @@ class CustomFontRenderer(val filePath: String, val size: Int) {
 
         val title = CustomFontRenderer("/assets/minecraft/basilisk/font/Uni Sans Bold.otf", 22)
         var text = CustomFontRenderer("/assets/minecraft/basilisk/font/Uni Sans Regular.otf", 12)
+        var monospace = CustomFontRenderer("/assets/minecraft/basilisk/font/RobotoMono-Regular.ttf", 10)
     }
 
     private val colorCodes: Array<Int> = arrayOf(

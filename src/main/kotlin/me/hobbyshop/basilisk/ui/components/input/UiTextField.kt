@@ -7,7 +7,7 @@ import org.lwjgl.input.Keyboard
 import org.lwjgl.opengl.GL11
 import java.awt.Color
 
-class UiTextField(x: Int, y: Int, width: Int, height: Int) : UiComponent(x, y, width, height) {
+class UiTextField(val fontRenderer: CustomFontRenderer, x: Int, y: Int, width: Int, height: Int) : UiComponent(x, y, width, height) {
 
     companion object {
         const val validChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!\"\\~$%&/(){}[]=?@+'#-_:.;,<>| "
@@ -26,7 +26,7 @@ class UiTextField(x: Int, y: Int, width: Int, height: Int) : UiComponent(x, y, w
 
         GL11.glPushMatrix()
         GuiUtils.drawRoundedRect(x, y, width, height, 5, color)
-        CustomFontRenderer.text.drawString(this.content, x + height / 2.0F, y + (height - 5) / 2.0F, -1)
+        fontRenderer.drawString(this.content, x + height / 2.0F, y + (height - 5) / 2.0F, -1)
         GL11.glDisable(GL11.GL_BLEND)
         GL11.glPopMatrix()
     }
