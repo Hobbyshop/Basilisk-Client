@@ -62,7 +62,7 @@ class UiConsole(parent: GuiScreen?) : UiScreen(parent) {
     override fun keyTyped(typedChar: Char, keyCode: Int) {
         if (keyCode == Keyboard.KEY_RETURN) {
             if (inputBox.content.isNotEmpty())
-                Basilisk.instance.logger.info(this.inputBox.content)
+                ClientConsole.instance.performCommand(inputBox.content)
 
             this.inputBox.content = ""
             return

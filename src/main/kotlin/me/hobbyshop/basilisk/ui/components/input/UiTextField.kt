@@ -13,7 +13,6 @@ class UiTextField(x: Int, y: Int, width: Int, height: Int) : UiComponent(x, y, w
         const val validChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!\"\\~$%&/(){}[]=?@+'#-_:.;,<>| "
     }
 
-    var prefix: String = ""
     var cursorChar: Char = '|'
 
     var focused: Boolean = false
@@ -27,7 +26,7 @@ class UiTextField(x: Int, y: Int, width: Int, height: Int) : UiComponent(x, y, w
 
         GL11.glPushMatrix()
         GuiUtils.drawRoundedRect(x, y, width, height, 5, color)
-        CustomFontRenderer.text.drawString(prefix + " " + this.content, x + height / 2.0F, y + (height - 5) / 2.0F, -1)
+        CustomFontRenderer.text.drawString(this.content, x + height / 2.0F, y + (height - 5) / 2.0F, -1)
         GL11.glDisable(GL11.GL_BLEND)
         GL11.glPopMatrix()
     }
