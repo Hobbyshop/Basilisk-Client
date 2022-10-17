@@ -41,12 +41,15 @@ class ClientConsole {
     }
 
     fun performCommand(command: String) {
-        if (!commands.containsKey(command)) {
+        val args = command.split(' ').toMutableList()
+        val cmd = args.removeFirst()
+
+        if (!commands.containsKey(cmd)) {
             Basilisk.instance.logger.error("The command $command could not be found")
             return
         }
 
-
+        Basilisk.instance.logger.info("$cmd - $args.toString()")
     }
 
 }

@@ -35,25 +35,27 @@ class UiModMenu(parent: GuiScreen?) : UiScreen(parent) {
         Gui.drawModalRectWithCustomSizedTexture(this.width / 2 - 110, this.height / 2 - 70, 0F, 0F, 10, 10, 10F, 10F)
         CustomFontRenderer.title.drawStringScaled(Basilisk.NAME, this.width / 2 - 95, this.height / 2 - 68, -1, 0.65)
         GL11.glPopMatrix()
+
+        GL11.glColor3f(1.0F, 1.0F, 1.0F)
     }
 
     override fun initComponents() {
         filterButtons = arrayOf(
             UiRadioButton("ALL", this.width / 2 - 115, this.height / 2 - 48, 70, 14) {
                 if (filter != null)
-                    filter == null
+                    filter = null
             },
             UiRadioButton("HUD", this.width / 2 - 115, this.height / 2 - 30, 70, 14) {
                 if (filter != ModCategory.HUD)
-                    filter == ModCategory.HUD
+                    filter = ModCategory.HUD
             },
             UiRadioButton("PVP", this.width / 2 - 115, this.height / 2 - 12, 70, 14) {
                 if (filter != ModCategory.PVP)
-                    filter == ModCategory.PVP
+                    filter = ModCategory.PVP
             },
             UiRadioButton("MISC", this.width / 2 - 115, this.height / 2 + 6, 70, 14) {
                 if (filter != ModCategory.MISC)
-                    filter == ModCategory.MISC
+                    filter = ModCategory.MISC
             }
         )
         this.components.addAll(filterButtons)
