@@ -2,6 +2,7 @@ package me.hobbyshop.basilisk.script
 
 import me.hobbyshop.basilisk.Basilisk
 import java.io.BufferedReader
+import java.io.File
 import java.io.InputStreamReader
 
 class ClientConsole {
@@ -9,7 +10,7 @@ class ClientConsole {
     companion object {
         val instance: ClientConsole = ClientConsole()
 
-        private val commands: HashMap<String, String> = hashMapOf()
+        private val commands: HashMap<String, ScriptHandler> = hashMapOf()
     }
 
     val history: MutableList<String> = mutableListOf()
@@ -27,10 +28,11 @@ class ClientConsole {
 
             val splits = line.split(':')
 
-            val cmdName = splits[0]
-            val scriptPath = splits.subList(1, splits.size).joinToString("")
+            val cmdName = splits[0].trim()
+            val scriptPath = splits.subList(1, splits.size).joinToString("").trim()
 
-            commands[cmdName] = scriptPath
+            val absoulutePath = javaClass.getResource("/scripts/$scriptPath")!!.path
+            commands[cmdName] = ScriptHandler(absoulutePath)
         } while (line != null)
 
         reader.close()
@@ -49,8 +51,7 @@ class ClientConsole {
             return
         }
 
-        // perform command
-        Basilisk.instance.logger.info("$cmd - $args")
+        commands[cmd]!!.invoke()
     }
 
 }

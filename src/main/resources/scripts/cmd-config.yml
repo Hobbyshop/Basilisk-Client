@@ -5,5 +5,5 @@
 #
 # This file contains the mappings for all console commands
 
-help: "help.lua"
-echo: "echo.lua"
+help: help.lua
+echo: echo.lua
