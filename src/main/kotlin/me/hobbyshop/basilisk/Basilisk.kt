@@ -10,7 +10,6 @@ import me.hobbyshop.basilisk.util.Logger
 import me.hobbyshop.basilisk.util.event.EventManager
 import me.hobbyshop.basilisk.util.event.EventTarget
 import net.minecraft.client.Minecraft
-import org.lwjgl.input.Keyboard
 
 class Basilisk {
 
@@ -49,7 +48,7 @@ class Basilisk {
 
     @EventTarget
     fun onKeyPressed(event: KeyPressedEvent) {
-        if (event.keyCode == Keyboard.KEY_RSHIFT && mc.theWorld != null)
+        if (event.keyCode == KeyBindings.MOD_SCREEN.keyCode && mc.theWorld != null)
             mc.displayGuiScreen(UiModMenu(null))
     }
 

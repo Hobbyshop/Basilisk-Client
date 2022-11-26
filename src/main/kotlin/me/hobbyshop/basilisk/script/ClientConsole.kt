@@ -49,7 +49,8 @@ class ClientConsole {
             return
         }
 
-        Basilisk.instance.logger.info("$cmd - $args.toString()")
+        // perform command
+        Basilisk.instance.logger.info("$cmd - $args")
     }
 
 }
