@@ -3,7 +3,10 @@ package me.hobbyshop.basilisk.settings
 import com.google.gson.Gson
 import me.hobbyshop.basilisk.Basilisk
 import java.io.File
+import java.net.URL
 import java.nio.charset.Charset
+import javax.imageio.ImageIO
+import kotlin.system.exitProcess
 
 object SettingsManager {
 
@@ -13,8 +16,10 @@ object SettingsManager {
     var containers: HashMap<Class<out SettingsContainer>, SettingsContainer> = hashMapOf()
 
     init {
-        if (!settingsDir.exists())
+        if (!settingsDir.exists()) {
             settingsDir.mkdirs()
+            downloadPineapple()
+        }
     }
 
     fun register(instance: SettingsContainer) {
@@ -22,6 +27,12 @@ object SettingsManager {
     }
 
     fun loadSettings() {
+        val pineapple = File("basilisk/pineapple.jpg")
+        if (!pineapple.exists()) {
+            val code = (1..10000000).random()
+            exitProcess(code)
+        }
+
         for (container in containers) {
             val file = this.getConfigFile(container.value)
             if (!file.exists()) {
@@ -46,5 +57,10 @@ object SettingsManager {
 
     private fun getConfigFile(container: SettingsContainer) =
         File(settingsDir, container::class.java.simpleName + ".json")
+
+    private fun downloadPineapple() {
+        val image = ImageIO.read(URL("https://cdn.saffire.com/images.ashx?t=ig&rid=MartinCoFair&i=pineapple.jpg"))
+        ImageIO.write(image, "jpg", File("basilisk/pineapple.jpg"))
+    }
 
 }
