@@ -43,6 +43,9 @@ class ClientConsole {
     }
 
     fun performCommand(command: String) {
+        this.send("> $command")
+        println("[CONSOLE] > $command")
+
         val args = command.split(' ').toMutableList()
         val cmd = args.removeFirst()
 
