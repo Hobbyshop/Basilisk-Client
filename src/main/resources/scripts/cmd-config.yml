@@ -8,3 +8,4 @@
 help: help.lua
 echo: echo.lua
 shutdown: shutdown.lua
+reload: reload.lua

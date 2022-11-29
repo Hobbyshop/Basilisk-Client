@@ -1,3 +1,3 @@
-require 'scripting/logger'
+require 'scripting/client'
 
-logger.fatal('shutting down!!!')
+client.exit()

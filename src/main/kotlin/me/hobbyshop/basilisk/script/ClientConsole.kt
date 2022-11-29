@@ -3,6 +3,7 @@ package me.hobbyshop.basilisk.script
 import me.hobbyshop.basilisk.Basilisk
 import java.io.BufferedReader
 import java.io.File
+import java.io.FileInputStream
 import java.io.InputStreamReader
 
 class ClientConsole {
@@ -16,8 +17,10 @@ class ClientConsole {
     val history: MutableList<String> = mutableListOf()
 
     fun loadCommands() {
-        val stream = javaClass.getResourceAsStream("/scripts/cmd-config.yml")
-        val reader = BufferedReader(InputStreamReader(stream))
+        commands.clear()
+
+        val config = File("basilisk/scripts/cmd-config.yml")
+        val reader = BufferedReader(InputStreamReader(FileInputStream(config)))
 
         var line: String?
         do {
