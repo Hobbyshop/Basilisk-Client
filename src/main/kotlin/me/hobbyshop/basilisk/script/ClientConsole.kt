@@ -31,8 +31,7 @@ class ClientConsole {
             val cmdName = splits[0].trim()
             val scriptPath = splits.subList(1, splits.size).joinToString("").trim()
 
-            val absoulutePath = javaClass.getResource("/scripts/$scriptPath")!!.path
-            commands[cmdName] = ScriptHandler(absoulutePath)
+            commands[cmdName] = ScriptHandler.getScriptByName(scriptPath)
         } while (line != null)
 
         reader.close()

@@ -3,6 +3,7 @@ package me.hobbyshop.basilisk
 import me.hobbyshop.basilisk.events.KeyPressedEvent
 import me.hobbyshop.basilisk.mod.ModuleManager
 import me.hobbyshop.basilisk.script.ClientConsole
+import me.hobbyshop.basilisk.script.ScriptHandler
 import me.hobbyshop.basilisk.settings.SettingsManager
 import me.hobbyshop.basilisk.ui.screens.UiModMenu
 import me.hobbyshop.basilisk.util.KeyBindings
@@ -10,6 +11,7 @@ import me.hobbyshop.basilisk.util.Logger
 import me.hobbyshop.basilisk.util.event.EventManager
 import me.hobbyshop.basilisk.util.event.EventTarget
 import net.minecraft.client.Minecraft
+import java.io.File
 
 class Basilisk {
 
@@ -31,10 +33,15 @@ class Basilisk {
         EventManager.register(this)
 
         logger = Logger()
-        ClientConsole.instance.loadCommands()
-        KeyBindings.registerBindings()
         modManager = ModuleManager()
+
         SettingsManager.loadSettings()
+        KeyBindings.registerBindings()
+
+        if (!File("basilisk/scripts").exists())
+            ScriptHandler.createDefaultScripts()
+
+        ClientConsole.instance.loadCommands()
 
         logger.info("Started client")
     }
