@@ -9,7 +9,7 @@ import org.lwjgl.input.Mouse
 import org.lwjgl.opengl.GL11
 
 
-open class UiListClear(x: Int, y: Int, width: Int, height: Int, protected val entryHeight: Int, protected val entries: List<UiListEntry>) : UiComponent(x, y, width, height) {
+open class UiListClear(x: Int, y: Int, width: Int, height: Int, protected val entryHeight: Int, var entries: List<UiListEntry>) : UiComponent(x, y, width, height) {
 
     companion object {
         const val SCROLL_INTENSITY = 12.0F
